@@ -1,0 +1,20 @@
+{
+    "name": "expedia-node",
+    "description": "Reserbus wrapper for node.js",
+    "version": "0.0.1",
+    "_id": "expedia@0.0.1",
+    "dependencies": {
+        "request": "latest"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lastroom/expedia-node"
+    },
+    "main": "./expedia.js",
+    "engines": {
+        "node": ">=0.10.15"
+    },
+    "optionalDependencies": {},
+    "scripts": {}
+}
