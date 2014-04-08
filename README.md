@@ -1,9 +1,13 @@
-Reserbus Wrapper for Node JS
+Expedia node.js wrapper
 ====
 
-> Expedia, get hotels around the world
+## Install
 
-## Implement
+```
+npm install expedia-node
+```
+
+## Usage
 
 ```js
 var expedia = require('expedia');

@@ -1,6 +1,6 @@
 {
     "name": "expedia",
-    "description": "Reserbus wrapper for node.js",
+    "description": "Expedia node.js wrapper.",
     "version": "0.0.1",
     "_id": "expedia@0.0.1",
     "dependencies": {
