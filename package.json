@@ -1,17 +1,17 @@
 {
-    "name": "expedia",
-    "description": "Expedia node.js wrapper.",
+    "name": "ean",
+    "description": "EAN node.js wrapper.",
     "version": "0.0.1",
-    "_id": "expedia@0.0.1",
+    "_id": "ean@0.0.1",
     "dependencies": {
         "request": "latest"
     },
     "devDependencies": {},
     "repository": {
         "type": "git",
-        "url": "https://github.com/lastroom/expedia-node"
+        "url": "https://github.com/lastroom/ean-node"
     },
-    "main": "./expedia.js",
+    "main": "./ean.js",
     "engines": {
         "node": ">=0.10.15"
     },
