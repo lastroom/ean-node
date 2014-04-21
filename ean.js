@@ -71,7 +71,6 @@ EAN.prototype.avail = function(params, callback) {
     request.get(this.base_url + 'avail', {
         qs: params
     }, function (err, request, body) {
-        //console.log(body);
         var error = err;
         var result = null;
         if (body == "<h1>503 Service Unavailable</h1>") {
@@ -90,7 +89,7 @@ EAN.prototype.avail = function(params, callback) {
 };
 
 EAN.prototype.res = function(params, callback) {
-    var booking_url = this.base_url.replace('http://', 'https://book.');
+    var booking_url = this.base_url.replace('http://api.eancdn.com', 'http://api.ean.com').replace('http://', 'https://book.');
     request.post(booking_url + 'res', {
         qs: params
     }, function(err, request, body) {

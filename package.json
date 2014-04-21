@@ -1,8 +1,8 @@
 {
     "name": "ean",
     "description": "EAN node.js wrapper.",
-    "version": "0.0.1",
-    "_id": "ean@0.0.1",
+    "version": "0.0.2",
+    "_id": "ean@0.0.2",
     "dependencies": {
         "request": "latest"
     },
