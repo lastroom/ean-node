@@ -15,10 +15,13 @@ EAN.prototype.list = function(params, callback) {
         } else if (body == "<h1>403 Developer Over Rate</h1>") {
             error = "403 Developer Over Rate";
         } else {
-            result = JSON.parse(body);
-            if (result['HotelListResponse'].hasOwnProperty('EanWsError')) {
-                error = result['HotelListResponse']['EanWsError']['verboseMessage'];
-                result = null;
+            if(body) {
+                result = JSON.parse(body);
+                console.log(result)
+                if (result['HotelListResponse'].hasOwnProperty('EanWsError')) {
+                    error = result['HotelListResponse']['EanWsError']['verboseMessage'];
+                    result = null;
+                }
             }
         }
         callback(error, result);
