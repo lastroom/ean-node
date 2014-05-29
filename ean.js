@@ -17,7 +17,6 @@ EAN.prototype.list = function(params, callback) {
         } else {
             if(body) {
                 result = JSON.parse(body);
-                console.log(result)
                 if (result['HotelListResponse'].hasOwnProperty('EanWsError')) {
                     error = result['HotelListResponse']['EanWsError']['verboseMessage'];
                     result = null;
