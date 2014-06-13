@@ -115,8 +115,20 @@ EAN.prototype.res = function(params, callback) {
     request.post(booking_url + 'res', {
         qs: params
     }, function(err, request, body) {
-        var result = JSON.parse(body);
-        callback(err, result);
+        var error = err;
+        var result = null;
+        if (body == "<h1>503 Service Unavailable</h1>") {
+            error = "Service Unavailable";
+        } else if (body == "<h1>403 Developer Over Rate</h1>") {
+            error = "403 Developer Over Rate";
+        } else {
+            result = JSON.parse(body);
+            if (result.HotelRoomReservationResponse.hasOwnProperty('EanWsError')) {
+                error = result.HotelRoomReservationResponse.EanWsError.verboseMessage;
+                result = null;
+            }
+        }
+        callback(error, result);
     });
 };
  
