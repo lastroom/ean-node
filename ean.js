@@ -72,20 +72,13 @@ EAN.prototype.roomImages = function(params, callback) {
     request.get(this.base_url + 'roomImages', {
         qs: params
     }, function(err, request, body) {
-        var error = err;
-        var result = null;
-        if (body == "<h1>503 Service Unavailable</h1>") {
-            error = "Service Unavailable";
-        } else if (body == "<h1>403 Developer Over Rate</h1>") {
-            error = "403 Developer Over Rate";
+        var result = {};
+        if (/<h1>.*<\/h1>/.exec(body)) {
+            result.HotelRoomImageResponse = {EanWsError: { verboseMessage: body }};
         } else {
             result = JSON.parse(body);
-            if (result['HotelRoomAvailabilityResponse'].hasOwnProperty('EanWsError')) {
-                error = result['HotelRoomAvailabilityResponse']['EanWsError']['verboseMessage'];
-                result = null;
-            }
         }
-        callback(error, result);
+        callback(err, result);
     });
 };
  
