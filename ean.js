@@ -124,5 +124,29 @@ EAN.prototype.res = function(params, callback) {
         callback(error, result);
     });
 };
+
+EAN.prototype.cancellation = function(params, callback) {
+    var me = this;
+    console.log(params);
+    var cancel_url = me.base_url + 'cancel?';
+    request.get(cancel_url, {
+        qs: params
+    }, function(err, request, body) {
+        var error = err;
+        var result = null;
+        if (body == "<h1>503 Service Unavailable</h1>") {
+            error = "Service Unavailable";
+        } else if (body == "<h1>403 Developer Over Rate</h1>") {
+            error = "403 Developer Over Rate";
+        } else {
+            result = JSON.parse(body);
+            if (result.HotelRoomCancellationResponse.hasOwnProperty('EanWsError')) {
+                error = result.HotelRoomCancellationResponse.EanWsError.verboseMessage;
+                result = null;
+            }
+        }
+        callback(error, result);
+    });
+}
  
 module.exports = new EAN();
