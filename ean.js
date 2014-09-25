@@ -127,7 +127,6 @@ EAN.prototype.res = function(params, callback) {
 
 EAN.prototype.cancellation = function(params, callback) {
     var me = this;
-    console.log(params);
     var cancel_url = me.base_url + 'cancel?';
     request.get(cancel_url, {
         qs: params
