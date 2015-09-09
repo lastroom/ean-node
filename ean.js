@@ -8,8 +8,8 @@ EAN.prototype.list = function(params, callback) {
     request.get(this.base_url + 'list', {
         qs: params
     }, function(err, request, body) {
-        var error = err;
-        var result = null;
+        var error = err,
+            result = null;
         if (error) {
             callback(null, {
                 HotelListResponse: {
@@ -21,10 +21,10 @@ EAN.prototype.list = function(params, callback) {
             });
             return;
         }
-        if (body == "<h1>503 Service Unavailable</h1>") {
-            error = "Service Unavailable";
-        } else if (body == "<h1>403 Developer Over Rate</h1>") {
-            error = "403 Developer Over Rate";
+        if (body == '<h1>503 Service Unavailable</h1>') {
+            error = 'Service Unavailable';
+        } else if (body == '<h1>403 Developer Over Rate</h1>') {
+            error = '403 Developer Over Rate';
         } else {
             result = JSON.parse(body);
             if (result['HotelListResponse'].hasOwnProperty('EanWsError')) {
@@ -51,12 +51,12 @@ EAN.prototype.info = function(params, callback) {
     request.get(this.base_url + 'info', {
         qs: params
     }, function (err, request, body) {
-        var error = err;
-        var result = null;
-        if (body == "<h1>503 Service Unavailable</h1>") {
-            error = "Service Unavailable";
-        } else if (body == "<h1>403 Developer Over Rate</h1>") {
-            error = "403 Developer Over Rate";
+        var error = err,
+            result = null;
+        if (body == '<h1>503 Service Unavailable</h1>') {
+            error = 'Service Unavailable';
+        } else if (body == '<h1>403 Developer Over Rate</h1>') {
+            error = '403 Developer Over Rate';
         } else {
             result = JSON.parse(body);
             if (result['HotelInformationResponse'].hasOwnProperty('EanWsError')) {
@@ -86,12 +86,12 @@ EAN.prototype.avail = function(params, callback) {
     request.get(this.base_url + 'avail', {
         qs: params
     }, function (err, request, body) {
-        var error = err;
-        var result = null;
-        if (body == "<h1>503 Service Unavailable</h1>") {
-            error = "Service Unavailable";
-        } else if (body == "<h1>403 Developer Over Rate</h1>") {
-            error = "403 Developer Over Rate";
+        var error = err,
+            result = null;
+        if (body == '<h1>503 Service Unavailable</h1>') {
+            error = 'Service Unavailable';
+        } else if (body == '<h1>403 Developer Over Rate</h1>') {
+            error = '403 Developer Over Rate';
         } else {
             result = JSON.parse(body);
             if (result['HotelRoomAvailabilityResponse'].hasOwnProperty('EanWsError')) {
@@ -108,12 +108,12 @@ EAN.prototype.res = function(params, callback) {
     request.post(booking_url + 'res', {
         qs: params
     }, function(err, request, body) {
-        var error = err;
-        var result = null;
-        if (body == "<h1>503 Service Unavailable</h1>") {
-            error = "Service Unavailable";
-        } else if (body == "<h1>403 Developer Over Rate</h1>") {
-            error = "403 Developer Over Rate";
+        var error = err,
+            result = null;
+        if (body == '<h1>503 Service Unavailable</h1>') {
+            error = 'Service Unavailable';
+        } else if (body == '<h1>403 Developer Over Rate</h1>') {
+            error = '403 Developer Over Rate';
         } else {
             result = JSON.parse(body);
             if (result.HotelRoomReservationResponse.hasOwnProperty('EanWsError')) {
@@ -126,17 +126,17 @@ EAN.prototype.res = function(params, callback) {
 };
 
 EAN.prototype.cancellation = function(params, callback) {
-    var me = this;
-    var cancel_url = me.base_url + 'cancel?';
+    var me = this,
+        cancel_url = me.base_url + 'cancel?';
     request.get(cancel_url, {
         qs: params
     }, function(err, request, body) {
         var error = err;
         var result = null;
-        if (body == "<h1>503 Service Unavailable</h1>") {
-            error = "Service Unavailable";
-        } else if (body == "<h1>403 Developer Over Rate</h1>") {
-            error = "403 Developer Over Rate";
+        if (body == '<h1>503 Service Unavailable</h1>') {
+            error = 'Service Unavailable';
+        } else if (body == '<h1>403 Developer Over Rate</h1>') {
+            error = '403 Developer Over Rate';
         } else {
             result = JSON.parse(body);
             if (result.HotelRoomCancellationResponse.hasOwnProperty('EanWsError')) {
